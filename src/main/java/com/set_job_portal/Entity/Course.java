@@ -1,0 +1,81 @@
+package com.set_job_portal.Entity;
+
+import java.time.LocalDateTime;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Table(name="courses")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class Course 
+{
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	public Long id;
+	
+	public String courseTitle;
+	public String courseDescription;
+	public String courseCatogory;
+	public String adminId;
+	private LocalDateTime createdAt;
+	private boolean active;
+	
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getCourseTitle() {
+		return courseTitle;
+	}
+	public void setCourseTitle(String courseTitle) {
+		this.courseTitle = courseTitle;
+	}
+	public String getCourseDescription() {
+		return courseDescription;
+	}
+	public void setCourseDescription(String courseDescription) {
+		this.courseDescription = courseDescription;
+	}
+	public String getCourseCatogory() {
+		return courseCatogory;
+	}
+	public void setCourseCatogory(String courseCatogory) {
+		this.courseCatogory = courseCatogory;
+	}
+	public String getAdminId() {
+		return adminId;
+	}
+	public void setAdminId(String adminId) {
+		this.adminId = adminId;
+	}
+	public LocalDateTime getCreatedAt() {
+		return createdAt;
+	}
+	public void setCreatedAt(LocalDateTime createdAt) {
+		this.createdAt = createdAt;
+	}
+	public boolean isActive() {
+		return active;
+	}
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+	
+	
+
+}

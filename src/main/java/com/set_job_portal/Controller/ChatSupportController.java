@@ -1,0 +1,24 @@
+package com.set_job_portal.Controller;
+
+import java.time.LocalDateTime;
+
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.set_job_portal.Entity.ChatSupport;
+
+@RestController
+@RequestMapping("/support")
+public class ChatSupportController
+{
+	@MessageMapping("/SendMessage")
+	@SendTo("/topic/message")
+	public ChatSupport sendMessage(ChatSupport message){
+		message.setTimeStamp(LocalDateTime.now());
+		return message;
+	}
+
+
+}
